@@ -5,9 +5,11 @@
  */
 
 require('./bootstrap');
-import Home from "./components/Home";
-
+import App from "./components/App";
+import router from "./router";
+import VueRouter from 'vue-router';
 window.Vue = require('vue').default;
+Vue.use(VueRouter);
 
 /**
  * The following block of code may be used to automatically register your
@@ -30,6 +32,7 @@ window.Vue = require('vue').default;
 
 if(document.getElementById('app')){
     window.laravelApp = new Vue({
-        render  :   h => h(Home)
+        router,
+        render  :   h => h(App)
     }).$mount('#app');
 }
