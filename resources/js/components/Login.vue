@@ -61,12 +61,15 @@
         mounted() {
             console.log("METHOD::mounted ~ Login.vue");
         },
+        computed: {
+        },
         methods: {
             onClickSignIn(event) {
                 let self = this;
                 event.preventDefault();
                 console.log("METHOD::onClickSignIn ~ email, password -> ", this.email, this.password);
-                axios.post('/api/auth/login', {
+                this.$store.dispatch('logIn', {email: this.email, password: this.password});
+                /*axios.post('/api/auth/login', {
                     email: self.email,
                     password: self.password
                 })
@@ -76,7 +79,7 @@
                 .catch(err => {
                     console.log("ERR LOGIN RESPONSE -> ", err);
                 });
-
+*/
             }
         }
     }
