@@ -50,6 +50,9 @@
 </template>
 
 <script>
+    import {authMethods} from "../state/helpers";
+    import {mapGetters} from 'vuex';
+
     export default {
         name: "Login",
         data () {
@@ -59,27 +62,21 @@
             }
         },
         mounted() {
-            console.log("METHOD::mounted ~ Login.vue");
+            console.log("METHOD::mounted ~ Login.vue - isLoggedIn ->", this.loggedIn);
+            if(this.loggedIn){
+                this.$router.push({name: 'home'});
+            }
         },
         computed: {
+            ...mapGetters(['loggedIn'])
         },
         methods: {
+            ...authMethods,
             onClickSignIn(event) {
                 let self = this;
                 event.preventDefault();
                 console.log("METHOD::onClickSignIn ~ email, password -> ", this.email, this.password);
-                this.$store.dispatch('logIn', {email: this.email, password: this.password});
-                /*axios.post('/api/auth/login', {
-                    email: self.email,
-                    password: self.password
-                })
-                .then(resp => {
-                    console.log("LOGIN RESPONSE -> ", resp.data);
-                })
-                .catch(err => {
-                    console.log("ERR LOGIN RESPONSE -> ", err);
-                });
-*/
+                this.logIn({email: this.email, password: this.password});
             }
         }
     }

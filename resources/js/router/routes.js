@@ -1,5 +1,6 @@
 import Login from "../components/Login";
 import Home from "../components/Home";
+import Logout from "../components/Logout";
 
 export default [
     {
@@ -11,5 +12,10 @@ export default [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/logout',
+        name: 'logout',
+        component: Logout
     }
 ]

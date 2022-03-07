@@ -8,7 +8,7 @@ require('./bootstrap');
 import App from "./components/App";
 import router from "./router";
 import VueRouter from 'vue-router';
-import {store} from './state/store';
+import store from "./state/store";
 window.Vue = require('vue').default;
 Vue.use(VueRouter);
 
