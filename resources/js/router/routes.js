@@ -1,6 +1,6 @@
-import Login from "../components/Login";
-import Home from "../components/Home";
-import Logout from "../components/Logout";
+import Login from "../views/Login";
+import Home from "../views/Home";
+import Logout from "../views/Logout";
 
 export default [
     {

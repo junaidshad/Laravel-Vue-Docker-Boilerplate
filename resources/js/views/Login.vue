@@ -62,21 +62,24 @@
             }
         },
         mounted() {
-            console.log("METHOD::mounted ~ Login.vue - isLoggedIn ->", this.loggedIn);
             if(this.loggedIn){
                 this.$router.push({name: 'home'});
             }
         },
         computed: {
-            ...mapGetters(['loggedIn'])
+            ...mapGetters('auth', ['loggedIn'])
         },
         methods: {
             ...authMethods,
-            onClickSignIn(event) {
+            async onClickSignIn(event) {
                 let self = this;
                 event.preventDefault();
                 console.log("METHOD::onClickSignIn ~ email, password -> ", this.email, this.password);
-                this.logIn({email: this.email, password: this.password});
+                await this.logIn({email: this.email, password: this.password});
+                if(this.loggedIn) {
+                    //redirect to home.
+                    this.$router.push({name: 'home'});
+                }
             }
         }
     }

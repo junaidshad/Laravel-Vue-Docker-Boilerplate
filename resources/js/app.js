@@ -5,7 +5,7 @@
  */
 
 require('./bootstrap');
-import App from "./components/App";
+import App from "./views/App";
 import router from "./router";
 import VueRouter from 'vue-router';
 import store from "./state/store";
@@ -33,8 +33,8 @@ Vue.use(VueRouter);
 
 if(document.getElementById('app')){
     window.laravelApp = new Vue({
-        store,
         router,
+        store,
         render  :   h => h(App)
     }).$mount('#app');
 }

@@ -3,7 +3,6 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
     import {authMethods} from "../state/helpers";
 
     export default {

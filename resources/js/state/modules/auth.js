@@ -50,14 +50,14 @@ export const actions = {
             .catch(err => {
                 console.warn(err);
             });
-        commit('SET_CURRENT_USER', null)
+        commit('SET_CURRENT_USER', null);
+        router.push({name: 'login'});
     },
 
     // Validates the current user's token and refreshes it
     // with new data from the API.
     validate({ commit, state }) {
         if (!state.currentUser) {
-            router.push({name: 'login'})
             return Promise.resolve(null)
         }
 

@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="h-screen">
+        <div class="bg-indigo-600 text-white-50">jaydee</div>
     </div>
 </template>
 
